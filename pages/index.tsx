@@ -1,13 +1,10 @@
-import type { NextPage } from 'next'
-import React, { useState } from "react";
+import Layout from '../common/components/Layout'
+import styles from '../styles/Home.module.css'
 
-
-
-const Home: NextPage = () => {
+export default function Home() {
   return (
-    <div className="App">
+    <div className={styles.container}>
+      <Layout />
     </div>
-  );
+  )
 }
-
-export default Home
