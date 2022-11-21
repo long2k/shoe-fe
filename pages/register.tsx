@@ -2,6 +2,7 @@ import React from 'react'
 import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
 import { useFormik } from 'formik';
+import Link from 'next/link'
 import * as Yup from 'yup';
 
 const register = () => {
@@ -39,10 +40,10 @@ const register = () => {
             onSubmit={formik.handleSubmit}
             className="leading-form w-1/3 absolute top-1/4 left-1/3 "
         >
-            <div className="w-full  text-white">
+            <div className="w-full ">
                 <p>Start with Near</p>
                 <h1 className='text-2xl'>Sign In With Account</h1>
-                <p>If have account? <a>Sign In Now.</a></p>
+                <p>If have account? <Link href='/signin' >Sign In Now.</Link></p>
             </div>
             <div className='w-full mt-3 flex content-between'>
                 <TextField
