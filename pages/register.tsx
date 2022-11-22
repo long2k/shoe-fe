@@ -4,6 +4,7 @@ import TextField from '@mui/material/TextField'
 import { useFormik } from 'formik';
 import Link from 'next/link'
 import * as Yup from 'yup';
+import styles from '../styles/components/register.module.css'
 
 const register = () => {
     const RegisterSchema = Yup.object().shape({
@@ -38,9 +39,9 @@ const register = () => {
     return (
         <form
             onSubmit={formik.handleSubmit}
-            className="leading-form w-1/3 absolute top-1/4 left-1/3 "
+            className="leading-form w-1/3 relative top-1/4 left-1/3 my-2.5 "
         >
-            <div className="w-full ">
+            <div className={styles.lineHeight}>
                 <p>Start with Near</p>
                 <h1 className='text-2xl'>Sign In With Account</h1>
                 <p>If have account? <Link href='/signin' >Sign In Now.</Link></p>
@@ -99,7 +100,14 @@ const register = () => {
                     sx={{ width: "100%" }}
                 />
             </div>
-            <Button type='submit' className='w-full mt-3' sx={{ width: "80%" }}>Register</Button>
+            <Button 
+            type='submit' 
+            className='w-full mt-3' 
+            variant="outlined" 
+            sx={{ width: "80%", height:"45px" , marginBottom: "12px"}}
+            >
+                Register
+            </Button>
         </form>
     )
 }

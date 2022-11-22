@@ -1,0 +1,21 @@
+.container{
+    margin-top: 15px;
+    height: 20%;
+    display:grid;
+    grid-template-columns: 200px 200px 200px 200px;
+    grid-gap: 14px;
+    margin: 0 auto;
+}
+.colorPrice{
+    color: red;
+    font-weight: 500;
+}
+
+.gridItem{
+    width:200px
+}
+.base {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

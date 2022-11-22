@@ -1,0 +1,14 @@
+.header{
+    width: 100%;
+    height: 85px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 2px 1px 14px #d9d5d5;
+    margin-bottom: 30px;
+}
+.headerRight{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

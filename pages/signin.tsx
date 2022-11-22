@@ -2,12 +2,11 @@ import React from 'react'
 import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
 import { useFormik } from 'formik'
-import { useSelector, useDispatch } from 'react-redux'
-import { userSelector } from '../redux/slices/user.slice'
 import userApi from '../api/module/user.api'
 import * as Yup from 'yup'
 import Link from 'next/link'
-import '../scss/components/signin.module.scss'
+import styles from '../styles/components/signin.module.css';
+
 
 const signin = () => {
     const SignInSchema = Yup.object().shape({
@@ -17,8 +16,6 @@ const signin = () => {
             .required('The Field is Required'),
 
     });
-    const user = useSelector(userSelector)
-    console.log("user:", user)
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -26,21 +23,20 @@ const signin = () => {
         },
         validationSchema: SignInSchema,
         onSubmit: (values) => {
-            useDispatch(userApi.signIn(values))
 
         },
     });
     return (
         <form
             onSubmit={formik.handleSubmit}
-            className="leading-form w-1/3 absolute top-1/4 left-1/3 form-style"
+            className={`leading-form w-1/3 relative top-1/4 left-1/3 my-5 ${styles.signin}`}
         >
-            <div className="w-full">
+            <div className="w-full leading-10">
                 <p>Start with Near</p>
                 <h1 className='text-2xl'>Sign In With Account</h1>
                 <p>If no account? <Link href='/register'>Register Now.</Link></p>
             </div>
-            <div className='w-full mt-3'>
+            <div className='w-full mt-3 leading-loose my-3'>
                 <TextField
                     name="email"
                     value={formik.values.email}
@@ -51,7 +47,7 @@ const signin = () => {
                     label="Email"
                     sx={{ width: "100%" }} />
             </div>
-            <div className='w-full mt-3'>
+            <div className='w-full mt-3 my-3'>
                 <TextField
                     name="password"
                     value={formik.values.password}
@@ -64,8 +60,8 @@ const signin = () => {
             </div>
             <Button
                 type="submit"
-                className='w-full mt-3'
-                sx={{ width: "80%" }}
+                className='w-full mt-3 my-3'
+                sx={{ width: "80%", height: '55px' }}
                 variant="outlined"
             >
                 Sign In
