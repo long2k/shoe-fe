@@ -49,23 +49,23 @@ const Footer = () => {
               </h4>
               <ul className="navbar-social">
                 <li className="social-face">
-                  <a href="https://www.facebook.com/shopH2T" target="_blank" rel="nofollow">
+                  <a href="https://www.facebook.com/shopH2T" target="_blank" rel="nofollow noreferrer">
                     <i className="fa fa-facebook-official" aria-hidden="true"></i>
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.instagram.com/h2tstore.vn/" target="_blank" rel="nofollow">
+                  <a href="https://www.instagram.com/h2tstore.vn/" target="_blank" rel="nofollow noreferrer">
                     <i className="fa fa-instagram" aria-hidden="true"></i>
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.youtube.com/channel/UC1Y6Ys65qZw2Eg3XBPjaAnw" target="_blank" rel="nofollow">
+                  <a href="https://www.youtube.com/channel/UC1Y6Ys65qZw2Eg3XBPjaAnw" target="_blank" rel="nofollow noreferrer">
                     <i className="fa fa-youtube" aria-hidden="true"></i>
                   </a>
                 </li>
                 <li>
                   <a href="#" target="_blank" rel="nofollow">
-                    <i class="fa fa-zalo" aria-hidden="true"></i>
+                    <i className="fa fa-zalo" aria-hidden="true"></i>
                   </a>
                 </li>
               </ul></div>
@@ -86,17 +86,17 @@ const Footer = () => {
               </h4>
               <ul className="navbar-social">
                 <li className="social-face">
-                  <a href="https://www.facebook.com/shopH2T" target="_blank" rel="nofollow">
+                  <a href="https://www.facebook.com/shopH2T" target="_blank" rel="nofollow noreferrer">
                     <i className="fa fa-facebook-official" aria-hidden="true"></i>
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.instagram.com/h2tstore.vn/" target="_blank" rel="nofollow">
+                  <a href="https://www.instagram.com/h2tstore.vn/" target="_blank" rel="nofollow noreferrer">
                     <i className="fa fa-instagram" aria-hidden="true"></i>
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.youtube.com/channel/UC1Y6Ys65qZw2Eg3XBPjaAnw" target="_blank" rel="nofollow">
+                  <a href="https://www.youtube.com/channel/UC1Y6Ys65qZw2Eg3XBPjaAnw" target="_blank" rel="nofollow noreferrer">
                     <i className="fa fa-youtube" aria-hidden="true"></i>
                   </a>
                 </li>
