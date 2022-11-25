@@ -1,44 +1,62 @@
-import React, { useState } from "react";
-import { useRouter } from "next/router";
-import Tooltip from "@mui/material/Tooltip";
-import IconButton from "@mui/material/IconButton";
-import Avatar from "@mui/material/Avatar";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import Divider from "@mui/material/Divider";
-import PersonAdd from "@mui/icons-material/PersonAdd";
-import Settings from "@mui/icons-material/Settings";
-import styles from "../../../styles/components/header.module.css";
-import Logout from "@mui/icons-material/Logout";
-import Link from "next/link";
-import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import Logo from "../../../styles/images/ethereum.png";
+import Tabs from "@mui/material/Tabs";
+import LoginWithNearBtn from "@near/components/LoginWithNearBtn";
+import RegisterBtn from "@near/components/RegisterBtn";
+import { useWalletSelector } from "@near/context/WalletContext";
+import { checkAccount } from "@near/interfaces";
 import Image from "next/image";
-import LoginWithNearBtn from "../../../near/components/LoginWithNearBtn";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
+import styles from "@css/components/header.module.css";
+import Logo from "@css/images/ethereum.png";
+import AccountMenu from "./AccountMenu";
+import RegisterDialog from "@near/components/RegisterDialog";
+import FTWallet from "@near/components/FTWallet";
 
 const Header = () => {
     // handle setting for user
-    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-    const open = Boolean(anchorEl);
-    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorEl(event.currentTarget);
-    };
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
+    // const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    // const open = Boolean(anchorEl);
+    // const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    //     setAnchorEl(event.currentTarget);
+    // };
+    // const handleClose = () => {
+    //     setAnchorEl(null);
+    // };
     // set user for displaying name
-    const user = null;
+    // const user = null;
 
     // set router
     const router = useRouter();
     // change tab
-    const [tab, setTab] = useState<String>("/");
-    const changeTab = (event: React.SyntheticEvent, newValue: String) => {
+    const [tab, setTab] = useState<string>("/");
+    const changeTab = (event: React.SyntheticEvent, newValue: string) => {
         setTab(newValue);
         router.push(newValue);
     };
+
+    // near
+    const [registerDialogOpen, setRegisterDialogOpen] =
+        React.useState<boolean>(false);
+    const { accountId, selector } = useWalletSelector();
+    const [isRegistered, setIsRegistered] = React.useState<boolean>(false);
+    // check account state
+    React.useEffect(() => {
+        try {
+            (async () => {
+                if (accountId) {
+                    const response = await checkAccount(selector, accountId);
+                    setIsRegistered(response.success);
+                    setRegisterDialogOpen(!response.success);
+                    console.log(response);
+                }
+            })();
+        } catch (error) {
+            console.log(error);
+        }
+    }, [accountId]);
+
     return (
         <div className={styles.header}>
             <div className={styles.logo}>
@@ -58,8 +76,23 @@ const Header = () => {
                 </Tabs>
             </div>
             <div className={styles.headerRight}>
-                <LoginWithNearBtn/>
+                {!accountId && <LoginWithNearBtn />}
+                {accountId && !isRegistered && (
+                    <>
+                        <RegisterBtn /> <AccountMenu />
+                    </>
+                )}
+                {accountId && isRegistered && (
+                    <>
+                        <FTWallet />
+                        <AccountMenu />
+                    </>
+                )}
             </div>
+            <RegisterDialog
+                setDialogOpen={setRegisterDialogOpen}
+                dialogOpen={registerDialogOpen}
+            />
         </div>
     );
 };

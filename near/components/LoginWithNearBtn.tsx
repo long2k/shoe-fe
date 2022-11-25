@@ -1,15 +1,11 @@
 import Button from "@mui/material/Button";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { modalSelector, signIn } from "../../redux/slices/wallet.slice";
+import { useWalletSelector } from "../context/WalletContext";
 
-const LoginWithNearBtn: React.FC = () => {
-    const modal = useSelector(modalSelector);
-    const dispatch = useDispatch();
+const LoginWithNearBtn = () => {
+    const { modal } = useWalletSelector();
     const handleSignIn = () => {
-        dispatch(signIn())
-        console.log(modal);
-        modal?.show();
+        modal.show();
     };
 
     return (

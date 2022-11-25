@@ -15,7 +15,9 @@
         "jsx": "preserve",
         "incremental": true,
         "paths": {
-            "@redux/*": ["./redux/*"]
+            "@redux/*": ["./redux/*"],
+            "@near/*": ["./near/*"],
+            "@css/*": ["./styles/*"]
         }
     },
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

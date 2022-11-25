@@ -2,14 +2,9 @@ import React, { useRef, useEffect } from "react";
 import Image from "next/image";
 import Shoe from "../styles/images/shoes1.jpg";
 import styles from "../styles/components/mainpage.module.css";
-import { initialize } from "@redux/slices/wallet.slice";
-import { useAppDispatch } from "@redux/hooks";
+import "@near-wallet-selector/modal-ui/styles.css";
 
 export default function Home() {
-    const dispatch = useAppDispatch();
-    useEffect(() => {
-        dispatch(initialize());
-    }, []);
     const data = [
         {
             url: Shoe,
