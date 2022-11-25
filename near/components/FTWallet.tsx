@@ -1,12 +1,17 @@
 import Chip from "@mui/material/Chip";
 import { useWalletSelector } from "@near/context/WalletContext";
-import { getFtBalance } from "@near/interfaces";
+import { buyFt, getFtBalance } from "@near/interfaces";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
 import React from "react";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
+import { ONE_NEAR } from "@near/constants";
+import BuyFtDialog from "./BuyFtDialog";
 const FTWallet = () => {
     const { accountId, selector } = useWalletSelector();
     const [balance, setBalance] = React.useState<bigint>(BigInt(0));
+    const [isBuyFtDialogOpen, setIsBuyDialogOpen] =
+        React.useState<boolean>(false);
+
     React.useEffect(() => {
         try {
             (async () => {
@@ -18,8 +23,11 @@ const FTWallet = () => {
         } catch (e) {
             console.log(e);
         }
-    }, []);
-    const handleClick = () => {};
+    });
+    const handleClick = () => {
+        setIsBuyDialogOpen(true);
+        
+    };
     return (
         <div>
             <Chip
@@ -28,6 +36,10 @@ const FTWallet = () => {
                 onDelete={handleClick}
                 icon={<MonetizationOnOutlinedIcon />}
                 deleteIcon={<AddCircleOutlineOutlinedIcon />}
+            />
+            <BuyFtDialog
+                dialogOpen={isBuyFtDialogOpen}
+                setDialogOpen={setIsBuyDialogOpen}
             />
         </div>
     );

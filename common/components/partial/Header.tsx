@@ -55,7 +55,7 @@ const Header = () => {
         } catch (error) {
             console.log(error);
         }
-    }, [accountId]);
+    }, [accountId, selector]);
 
     return (
         <div className={styles.header}>
