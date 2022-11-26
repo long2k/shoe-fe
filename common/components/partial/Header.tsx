@@ -13,6 +13,8 @@ import Logo from "@css/images/ethereum.png";
 import AccountMenu from "./AccountMenu";
 import RegisterDialog from "@near/components/RegisterDialog";
 import FTWallet from "@near/components/FTWallet";
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import Button from '@mui/material/Button';
 
 const Header = () => {
     // handle setting for user
@@ -88,6 +90,9 @@ const Header = () => {
                         <AccountMenu />
                     </>
                 )}
+                <Button variant="text" onClick={()=>{router.push('/cart')}}>
+                    <AddShoppingCartIcon />
+                </Button>
             </div>
             <RegisterDialog
                 setDialogOpen={setRegisterDialogOpen}
