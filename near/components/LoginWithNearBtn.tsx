@@ -1,6 +1,5 @@
 import Button from "@mui/material/Button";
-import React from "react";
-import { useWalletSelector } from "../context/WalletContext";
+import { useWalletSelector } from "@near/context/WalletContext";
 
 const LoginWithNearBtn = () => {
     const { modal } = useWalletSelector();

@@ -5,7 +5,7 @@ import {
     OrderedItemsDto,
     Product,
     Transaction,
-    TxId,
+    TxId
 } from "@near/types";
 import { AccountView } from "near-api-js/lib/providers/provider";
 import { callMethod, viewMethod } from ".";
@@ -53,19 +53,19 @@ export const register = async (selector: WalletSelector, accountId: string) => {
     });
 };
 
-export const buyTokenCall = async (
-    selector: WalletSelector,
-    accountId: string,
-    amount: string
-) => {
-    return await callMethod({
-        selector,
-        accountId,
-        contractId: SHOP_CONTRACT,
-        method: SHOP_METHOD.BUY_TOKEN_CALL,
-        deposit: amount,
-    });
-};
+// export const buyTokenCall = async (
+//     selector: WalletSelector,
+//     accountId: string,
+//     amount: string
+// ) => {
+//     return await callMethod({
+//         selector,
+//         accountId,
+//         contractId: SHOP_CONTRACT,
+//         method: SHOP_METHOD.BUY_TOKEN_CALL,
+//         deposit: amount,
+//     });
+// };
 
 export const createOrder = async (
     selector: WalletSelector,

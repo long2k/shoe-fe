@@ -23,7 +23,7 @@ export default function BuyFtDialog({
         setDialogOpen(false);
     };
     const [ftRate, setFtRate] = React.useState<string>("");
-    const [nearAmount, setNearAmount] = React.useState<string>("0");
+    const [nearAmount, setNearAmount] = React.useState<string>("");
     const [isSummitButtonDisabled, setIsSummitButtonDisabled] =
         React.useState<boolean>(false);
     React.useEffect(() => {
@@ -36,6 +36,10 @@ export default function BuyFtDialog({
             console.error(error);
         }
     }, []);
+
+    React.useEffect(() => {        
+        if (!nearAmount || nearAmount === "0") setIsSummitButtonDisabled(true);
+    }, [nearAmount]);
 
     const handleSubmit = () => {
         try {
@@ -93,7 +97,7 @@ export default function BuyFtDialog({
                         Current token rate: 1 FT ={" "}
                         {utils.format.formatNearAmount(ftRate)} Ⓝ
                     </DialogContentText>
-                    {tokenAmount && refundAmount && (
+                    {tokenAmount && refundAmount && nearAmount !== "0" && (
                         <DialogContentText>
                             You will get: {tokenAmount} FT and {refundAmount} Ⓝ
                         </DialogContentText>

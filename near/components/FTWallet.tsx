@@ -1,10 +1,9 @@
+import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
+import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
 import Chip from "@mui/material/Chip";
 import { useWalletSelector } from "@near/context/WalletContext";
-import { buyFt, getFtBalance } from "@near/interfaces";
-import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
+import { getFtBalance } from "@near/interfaces";
 import React from "react";
-import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
-import { ONE_NEAR } from "@near/constants";
 import BuyFtDialog from "./BuyFtDialog";
 const FTWallet = () => {
     const { accountId, selector } = useWalletSelector();
@@ -26,8 +25,8 @@ const FTWallet = () => {
     });
     const handleClick = () => {
         setIsBuyDialogOpen(true);
-        
     };
+
     return (
         <div>
             <Chip

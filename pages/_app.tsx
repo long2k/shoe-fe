@@ -1,8 +1,8 @@
+import { WalletSelectorContextProvider } from "@near/context/WalletContext";
 import type { AppProps } from "next/app";
 import { Provider } from "react-redux";
 import Footer from "../common/components/partial/Footer";
 import Header from "../common/components/partial/Header";
-import { WalletSelectorContextProvider } from "../near/context/WalletContext";
 import { store } from "../redux/store";
 import "../styles/globals.css";
 

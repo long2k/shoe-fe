@@ -1,19 +1,16 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
+import ChangeCircleIcon from "@mui/icons-material/ChangeCircle";
+import Logout from "@mui/icons-material/Logout";
+import Settings from "@mui/icons-material/Settings";
 import Avatar from "@mui/material/Avatar";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
+import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 import Tooltip from "@mui/material/Tooltip";
-import ChangeCircleIcon from "@mui/icons-material/ChangeCircle";
-import PersonAdd from "@mui/icons-material/PersonAdd";
-import Settings from "@mui/icons-material/Settings";
-import WalletIcon from "@mui/icons-material/Wallet";
-import Logout from "@mui/icons-material/Logout";
-import { useWalletSelector } from "../../../near/context/WalletContext";
+import { useWalletSelector } from "@near/context/WalletContext";
+import * as React from "react";
 
 export default function AccountMenu() {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -31,7 +28,7 @@ export default function AccountMenu() {
     const handleLogout = async () => {
         try {
             const wallet = await selector.wallet();
-            wallet.signOut();
+            await wallet.signOut();
         } catch (error) {
             console.error(error);
         }
@@ -62,7 +59,6 @@ export default function AccountMenu() {
                     textAlign: "center",
                 }}
             >
-                
                 <Tooltip title="Account settings">
                     <IconButton
                         onClick={handleClick}

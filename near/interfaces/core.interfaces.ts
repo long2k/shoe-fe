@@ -1,6 +1,6 @@
 import { WalletSelector } from "@near-wallet-selector/core";
 import { providers } from "near-api-js";
-import { THREE_HUNDRED_TGAS, NO_DEPOSIT, TX_STATUS } from "../constants";
+import { NO_DEPOSIT, THREE_HUNDRED_TGAS } from "../constants";
 
 export const viewMethod = async ({
     selector,
