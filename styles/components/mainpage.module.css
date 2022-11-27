@@ -19,3 +19,11 @@
     justify-content: center;
     align-items: center;
 }
+.effect{
+    cursor: pointer;
+    border: 1px solid #dddddd;
+    padding: 9px;
+    box-shadow: 3px 10px 9px #e9e9e9;
+    border-radius: 16px;
+}
+

@@ -13,11 +13,11 @@ import Logo from "@css/images/ethereum.png";
 import AccountMenu from "./AccountMenu";
 import RegisterDialog from "@near/components/RegisterDialog";
 import FTWallet from "@near/components/FTWallet";
-import { Button } from "@mui/material";
 import userApi from "../../../api/module/user.api";
 import { useDispatch } from "react-redux";
-import { connect, keyStores, WalletConnection } from "near-api-js";
-import { AnyAction } from "redux";
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import Button from '@mui/material/Button';
+
 
 const Header = () => {
     // handle setting for user
@@ -81,8 +81,8 @@ const Header = () => {
             </div>
             <div className="nav">
                 <Tabs value={tab} onChange={changeTab} centered>
-                    <Tab label="Home" value="/" />
-                    <Tab label="Transaction" value="/transaction" />
+                    <Tab label="Trang Chủ" value="/" />
+                    <Tab label="Giao Dịch" value="/transaction" />
                 </Tabs>
             </div>
             <div className={styles.headerRight}>
@@ -98,6 +98,9 @@ const Header = () => {
                         <AccountMenu />
                     </>
                 )}
+                <Button variant="text" onClick={()=>{router.push('/cart')}}>
+                    <AddShoppingCartIcon />
+                </Button>
             </div>
             <RegisterDialog
                 setDialogOpen={setRegisterDialogOpen}

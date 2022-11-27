@@ -4,9 +4,11 @@ import {
     ThunkAction,
 } from "@reduxjs/toolkit";
 import userSlice from "./slices/user.slice";
+import productSlice from "./slices/product.slice";
 export const store = configureStore({
     reducer: {
         user: userSlice,
+        product: productSlice
     }
 });
 

@@ -12,18 +12,21 @@ const axiosClient = axios.create({
     },
 });
 
-axiosClient.interceptors.request.use(async (config) => config);
+axiosClient.interceptors.request.use(request => {
+    console.log("request:", request)
+    return request;
+}, error => {
+    console.log(error);
+    return Promise.reject(error);
+});
 
-axiosClient.interceptors.response.use(
-    (response) => {
-        if (response && response.data) {
-            return response.data;
-        }
-        return response;
-    },
-    (err) => {
-        throw err;
+axiosClient.interceptors.response.use((response) => {
+    if (response && response.data) {
+        return response.data
     }
-);
+    return response
+}, (err) => {
+    throw err;
+})
 
-export default axiosClient;
+export default axiosClient
