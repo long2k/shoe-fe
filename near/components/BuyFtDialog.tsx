@@ -37,7 +37,7 @@ export default function BuyFtDialog({
         }
     }, []);
 
-    React.useEffect(() => {        
+    React.useEffect(() => {
         if (!nearAmount || nearAmount === "0") setIsSummitButtonDisabled(true);
     }, [nearAmount]);
 

@@ -22,7 +22,7 @@ const FTWallet = () => {
         } catch (e) {
             console.log(e);
         }
-    });
+    }, [accountId, selector]);
     const handleClick = () => {
         setIsBuyDialogOpen(true);
     };

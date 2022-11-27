@@ -1,3 +1,3 @@
 export const  apiConfig = Object.freeze({
-    baseUrl: 'http://localhost:3005'
+    baseUrl: 'http://localhost:4040'
 })

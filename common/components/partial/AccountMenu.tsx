@@ -39,7 +39,6 @@ export default function AccountMenu() {
     };
     //Switch account
     const handleSwitchAccount = () => {
-        console.log(accounts);
         const currentIndex = accounts.findIndex(
             (x) => x.accountId === accountId
         );

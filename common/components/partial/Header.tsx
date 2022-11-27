@@ -13,6 +13,11 @@ import Logo from "@css/images/ethereum.png";
 import AccountMenu from "./AccountMenu";
 import RegisterDialog from "@near/components/RegisterDialog";
 import FTWallet from "@near/components/FTWallet";
+import { Button } from "@mui/material";
+import userApi from "../../../api/module/user.api";
+import { useDispatch } from "react-redux";
+import { connect, keyStores, WalletConnection } from "near-api-js";
+import { AnyAction } from "redux";
 
 const Header = () => {
     // handle setting for user
@@ -41,15 +46,20 @@ const Header = () => {
         React.useState<boolean>(false);
     const { accountId, selector } = useWalletSelector();
     const [isRegistered, setIsRegistered] = React.useState<boolean>(false);
+    const dispatch = useDispatch();
     // check account state
     React.useEffect(() => {
         try {
             (async () => {
                 if (accountId) {
                     const response = await checkAccount(selector, accountId);
+                    if (response.msg === "admin") {
+                        await dispatch(
+                            userApi.adminAuthenticate(accountId) as any
+                        );
+                    }
                     setIsRegistered(response.success);
                     setRegisterDialogOpen(!response.success);
-                    console.log(response);
                 }
             })();
         } catch (error) {

@@ -7,14 +7,15 @@ interface UserStateInterface {
     token: string,
     user: {
       lastName: string,
-      firstName: String,
-      email: String,
-      address: String,
-      wallet: String,
+      firstName: string,
+      email: string,
+      address: string,
+      wallet: string,
     }
   },
-  loading: Boolean,
-  error: String
+  loading: boolean,
+  error: string,
+  isAdmin: boolean
 }
 
 
@@ -30,7 +31,8 @@ const initialState: UserStateInterface = {
     }
   },
   loading: false,
-  error: ''
+  error: '',
+  isAdmin: false
 }
 
 export const userSlice = createSlice({

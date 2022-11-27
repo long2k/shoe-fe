@@ -43,8 +43,9 @@ export const WalletSelectorContextProvider: React.FunctionComponent<{
             debug: true,
             modules: [...(await setupDefaultWallets()), setupNearWallet()],
         });
-        const _modal = setupModal(_selector, {
-            contractId: process.env.SHOP_CONTRACT as string,
+        const contractId = process.env.SHOP_CONTRACT_ID;
+        const _modal =  setupModal(_selector, {
+            contractId:  contractId!,
         });
         const state = _selector.store.getState();
         setAccounts(state.accounts);
