@@ -73,8 +73,8 @@ const Header = () => {
             </div>
             <div className="nav">
                 <Tabs value={tab} onChange={changeTab} centered>
-                    <Tab label="Home" value="/" />
-                    <Tab label="Transaction" value="/transaction" />
+                    <Tab label="Trang Chủ" value="/" />
+                    <Tab label="Giao Dịch" value="/transaction" />
                 </Tabs>
             </div>
             <div className={styles.headerRight}>

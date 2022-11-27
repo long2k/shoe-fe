@@ -15,9 +15,9 @@ const cart = () => {
   let data = JSON.parse(localStorage?.getItem('items'))
   const [product, setProduct] = React.useState([])
   React.useEffect(() => {
-   
-      setProduct(data)
-  
+
+    setProduct(data)
+
   }, [])
   const paymentHandle = () => {
     console.log("ok")
@@ -31,7 +31,7 @@ const cart = () => {
     <>
       {
         product ? (
-          <div>
+          <div style={{ padding: "40px" }}>
             <TableContainer component={Paper}>
               <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
@@ -39,7 +39,7 @@ const cart = () => {
                     <TableCell>Sản Phẩm</TableCell>
                     <TableCell align="right">Giá</TableCell>
                     <TableCell align="right">Số Lượng</TableCell>
-                    <TableCell align="right">Tổng</TableCell>
+                    <TableCell align="right">Tổng Tiền</TableCell>
                     <TableCell align="right"></TableCell>
                   </TableRow>
                 </TableHead>
@@ -65,13 +65,11 @@ const cart = () => {
                 </TableBody>
               </Table>
             </TableContainer>
-            <Button onClick={paymentHandle}>Thanh Toán</Button>
+            <Button sx={{margin:"0 auto", display: "flex", marginTop: "12px", width: "250px"}} onClick={paymentHandle}>Thanh Toán</Button>
           </div>
         ) : <Loading />
-
       }
     </>
-
   );
 }
 

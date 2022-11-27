@@ -31,6 +31,9 @@ export default function Home() {
                             xs={3}
                             onClick={() => { handleClick(item._id) }}
                             key={idx}
+                            sx={{
+                                cursor: "pointer",
+                            }}
                         >
                             <img
                                 src={item.img}
