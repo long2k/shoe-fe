@@ -21,7 +21,6 @@ export enum SHOP_METHOD {
     GET_PRODUCT = "get_product",
     GET_ALL_PRODUCTS = "get_all_products",
     REGISTER_CALL = "register_call",
-    // BUY_TOKEN_CALL = "buy_token_call", //Mua ho token
     CREATE_ORDER_CALL = "create_order_call",
     CANCEL_ORDER_CALL = "cancel_order_call",
     CONFIRM_ORDER = "confirm_order",
@@ -41,11 +40,9 @@ export enum TX_STATUS {
 }
 
 export enum GAS {
-    // FT_ON_PURCHASE = 100_000_000_000_000,
     FT_ON_REFUND = 100_000_000_000_000,
     FT_ON_TRANSFER = 100_000_000_000_000,
     FT_ON_REGISTER = 100_000_000_000_000,
-    // RESOLVE_BUY_TOKEN = 100_000_000_000_000,
     RESOLVE_REGISTER = 100_000_000_000_000,
     RESOLVE_CREATE_ORDER = 100_000_000_000_000,
     RESOLVE_CANCEL_ORDER = 100_000_000_000_000,

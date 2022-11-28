@@ -1,20 +1,23 @@
-.text{
+.text {
     text-align: center;
     font-weight: 500;
 }
 
-.flex{
+.flex {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
-.footer{
-   border-top: 1px solid #c3c3c3;
-   margin-top: 12px;
-   height: 10%;
+
+.footer {
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    border-top: 1px solid #c3c3c3;
+    margin-top: 12px;
+    height: 10%;
 }
 
-.copyRight{
+.copyRight {
     border-top: 1px solid #e7e7e7;
-
 }

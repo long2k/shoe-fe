@@ -17,7 +17,8 @@
         "paths": {
             "@redux/*": ["./redux/*"],
             "@near/*": ["./near/*"],
-            "@css/*": ["./styles/*"]
+            "@css/*": ["./styles/*"],
+            "@components/*": ["./common/components/*"]
         }
     },
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

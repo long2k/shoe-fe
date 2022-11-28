@@ -6,7 +6,7 @@ import { getFtBalance } from "@near/interfaces";
 import React from "react";
 import BuyFtDialog from "./BuyFtDialog";
 const FTWallet = () => {
-    const { accountId, selector } = useWalletSelector();
+    const { accountId, selector, setWalletBalance } = useWalletSelector();
     const [balance, setBalance] = React.useState<bigint>(BigInt(0));
     const [isBuyFtDialogOpen, setIsBuyDialogOpen] =
         React.useState<boolean>(false);
@@ -23,6 +23,9 @@ const FTWallet = () => {
             console.log(e);
         }
     }, [accountId, selector]);
+
+    React.useEffect(() => setWalletBalance(balance.toString()), [balance]);
+
     const handleClick = () => {
         setIsBuyDialogOpen(true);
     };

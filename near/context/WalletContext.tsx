@@ -9,7 +9,7 @@ import React, {
     useCallback,
     useContext,
     useEffect,
-    useState
+    useState,
 } from "react";
 import { distinctUntilChanged, map } from "rxjs";
 
@@ -25,6 +25,8 @@ interface WalletSelectorContextValue {
     modal: WalletSelectorModal;
     accounts: Array<AccountState>;
     accountId: string | null;
+    walletBalance: string;
+    setWalletBalance: any
 }
 
 const WalletSelectorContext =
@@ -33,6 +35,7 @@ const WalletSelectorContext =
 export const WalletSelectorContextProvider: React.FunctionComponent<{
     children: ReactNode;
 }> = ({ children }) => {
+    const [walletBalance, setWalletBalance] = useState<string>("0");
     const [selector, setSelector] = useState<WalletSelector | null>(null);
     const [modal, setModal] = useState<WalletSelectorModal | null>(null);
     const [accounts, setAccounts] = useState<Array<AccountState>>([]);
@@ -44,8 +47,8 @@ export const WalletSelectorContextProvider: React.FunctionComponent<{
             modules: [...(await setupDefaultWallets()), setupNearWallet()],
         });
         const contractId = process.env.SHOP_CONTRACT_ID;
-        const _modal =  setupModal(_selector, {
-            contractId:  contractId!,
+        const _modal = setupModal(_selector, {
+            contractId: contractId!,
         });
         const state = _selector.store.getState();
         setAccounts(state.accounts);
@@ -90,6 +93,8 @@ export const WalletSelectorContextProvider: React.FunctionComponent<{
                 modal,
                 accounts,
                 accountId,
+                setWalletBalance,
+                walletBalance,
             }}
         >
             {children}

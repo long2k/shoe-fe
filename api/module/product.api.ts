@@ -20,7 +20,6 @@ const productApi = {
     getProductById: async (id: any) => {
         try {
             let url = `/product/${id}`
-            console.log("url:", url)
             const response = await axiosClient.get(url)
             if (response) {
                 console.log("response:", response)

@@ -5,9 +5,13 @@ export interface ContractResponse {
 }
 
 export interface ProductDto {
-    product_id: string;
-    quantity?: number;
-    unit_price?: string;
+    id: string;
+    name: string;
+    count: number;
+    price: string;
+    discount: string;
+    description: string;
+    img: string;
 }
 
 export interface OrderedItemsDto {
@@ -37,6 +41,7 @@ export interface ProductData {
 }
 
 export interface Transaction {
+    id: string;
     status: TX_STATUS;
     buyer: string;
     items: Array<Product>;
