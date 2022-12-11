@@ -83,6 +83,7 @@ const Header = () => {
                 <Tabs value={tab} onChange={changeTab} centered>
                     <Tab label="Trang Chủ" value="/" />
                     <Tab label="Giao Dịch" value="/transaction" />
+                    <Tab label="Vòng Quay May Mắn" value="/wheel" />
                 </Tabs>
             </div>
             <div className={styles.headerRight}>

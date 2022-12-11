@@ -44,6 +44,19 @@ const userApi = {
             }
         }
     ),
+    getRefund : async(accountId: String) => {
+        try {
+            let url = `/user/dailyreward/${accountId}`;
+            const response = await axiosClient.get(url);
+            console.log("response data:", response)
+            if(response){
+                return response
+            }
+        } catch (error) {
+            console.log("error:", error)
+            return  error.response.data.error
+        }
+    }
 };
 
 export default userApi;
