@@ -10,7 +10,7 @@
 
 *In development:*
 + Admin site
-+ Daily rewards with random (small) amount of tokens
++ ~~Daily rewards with random (small) amount of tokens~~
 + Customer confirm to complete order
 
 
