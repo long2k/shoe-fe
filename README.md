@@ -1,6 +1,6 @@
 - Backend: https://github.com/long2k/shoes-dapp-server
-- Fungible Token Contract: https://github.com/ndc1509/ptit-coin (currently private)
-- Shop Contract: https://github.com/ndc1509/shoes-shop-contract (currently private
+- Fungible Token Contract: https://github.com/ndc1509/ptit-coin 
+- Shop Contract: https://github.com/ndc1509/shoes-shop-contract 
 
 ## **FRONTEND**
 *Functionalities:* 
